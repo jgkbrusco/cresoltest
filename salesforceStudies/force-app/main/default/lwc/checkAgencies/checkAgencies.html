@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Check Agencies Monthly Cost" icon-name="custom:custom17">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-combobox name="cooperativeName" label="Cooperative" options={cooperativeOptions} value={selectedCooperativeId} onchange={handleCooperativeChange}></lightning-combobox>
+        </div>
+        <div class="slds-p-around_medium lgc-bg">
+            <ul if:true={agencies}>
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="slds-text-title_caps slds-text-align_center" scope="col" style="width: 20px;">
+                                Name
+                            </th>
+                            <th class="slds-text-title_caps slds-text-align_center" scope="col" style="width: 10px;">
+                                Monthly Cost
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <template for:each={agencies} for:item="agency">
+                                <tr key={agency.Id}>
+                                    <td data-label="Name">{agency.Name}</td>
+                                    <td data-label="Monthly Cost">{agency.Monthly_Cost__c}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                </table>
+            </ul>
+            <p if:true={noAgencies}>There is no agency with a monthly cost above the average for this Cooperative.</p> 
+        </div>
+    </lightning-card>    
+</template>

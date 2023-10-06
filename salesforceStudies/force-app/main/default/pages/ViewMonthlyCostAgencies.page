@@ -1,0 +1,21 @@
+<apex:page controller="ViewMonthlyCostAgenciesController">
+    <apex:sectionHeader title="View Agencies" subtitle="Monthly Cost" />
+    <apex:form>
+        <apex:pageMessages />
+        <apex:pageBlock>
+            <apex:pageBlockSection>
+                <apex:outputLabel for="cooperativeSelect">Select a cooperative:</apex:outputLabel>
+                <apex:selectList id="cooperativeSelect" value="{!selectedCooperativeId}" size="1">
+                    <apex:selectOptions value="{!accountOptions}" />
+                    <apex:actionSupport event="onchange" action="{!filteredAgencies}" reRender="agenciesTable" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection>
+                <apex:pageBlockTable id="agenciesTable" value="{!filteredAgencies}" var="agency">
+                    <apex:column value="{!agency.Name}" />
+                    <apex:column value="{!agency.Monthly_Cost__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Create New Agency" icon-name="custom:custom16">
+        <div class="slds-p-around_medium lgc-bg">            
+            <lightning-input name="name" class="nameInput" type="text" label="Agency Name" placeholder="Agency" onchange={handleNameChange} required></lightning-input>
+            <lightning-combobox name="cooperativeName" label="Cooperative" options={cooperativeOptions} value={selectedCooperativeId} onchange={handleCooperativeChange}></lightning-combobox>
+            <lightning-input name="monthlyCost" class="monthlyCostInput" type="number" label="Monthly Cost" placeholder="123.45" formatter="currency" step="0.01" onchange={handlemonthlyCostChange} required></lightning-input>
+        </div>
+        <p slot="footer"><lightning-button variant="brand" label="New" title="Create Agency" onclick={createAgency} class="slds-m-left_x-small"></lightning-button></p>
+    </lightning-card>
+</template>

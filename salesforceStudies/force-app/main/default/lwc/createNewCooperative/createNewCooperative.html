@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Create New Cooperative" icon-name="custom:custom14">
+        <div class="slds-p-around_medium lgc-bg">            
+            <lightning-input name="name" type="text" label="Cooperative Name" placeholder="Cresol Baser" onchange={handleNameChange} required></lightning-input>                        
+            <lightning-input-address name = "address"
+                address-label="Address"
+                street-label="Street"
+                city-label="City"
+                country-label="Country"
+                province-label="Province"
+                postal-code-label="PostalCode"
+                street="R. Ernesto Sanderson, 101"
+                city="Francisco Beltrão"
+                country="BR"
+                province="PR"
+                postal-code="85601-657"
+                onchange={handleAddressChange}
+                required></lightning-input-address>
+            <lightning-input name="phone" type="tel" label="Phone" placeholder="4635201981" onchange={handlePhoneChange} required></lightning-input>
+        </div>
+        <p slot="footer"><lightning-button variant="brand" label="New" title="Create Cooperative" onclick={createCooperative} class="slds-m-left_x-small"></lightning-button></p>
+    </lightning-card>
+</template>
